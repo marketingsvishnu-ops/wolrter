@@ -1,438 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IronFit Gym</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICESUPER Demo</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #111;
-      color: white;
-      line-height: 1.6;
-    }
+body{
+  background:#0f1020;
+  color:white;
+}
 
-    header {
-      background: #0a0a0a;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+.container{
+  display:flex;
+  min-height:100vh;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #ff3c00;
-    }
+.demo{
+  width:70%;
+  background:#111;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      transition: 0.3s;
-    }
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
 
-    nav a:hover {
-      color: #ff3c00;
-    }
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      padding: 60px 8%;
-      background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
-        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-    }
+.box{
+  width:100%;
+  background:rgba(10,10,10,.92);
+  border:1px solid #d4af37;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(212,175,55,.35);
+}
 
-    .hero-content {
-      max-width: 650px;
-    }
+.badge{
+  display:inline-block;
+  background:#d4af37;
+  color:#111;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
 
-    .hero h1 {
-      font-size: 65px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+h1{
+  font-size:32px;
+  color:#ffd86b;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
 
-    .hero h1 span {
-      color: #ff3c00;
-    }
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
+}
 
-    .hero p {
-      font-size: 19px;
-      margin-bottom: 30px;
-      color: #ddd;
-    }
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
 
-    .btn {
-      display: inline-block;
-      background: #ff3c00;
-      color: white;
-      padding: 14px 30px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: .3s;
-    }
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#2b2208);
+  border:1px solid rgba(212,175,55,.6);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
 
-    .btn:hover {
-      background: #d83200;
-      transform: translateY(-2px);
-    }
+.feature span{
+  color:#ffd86b;
+}
 
-    section {
-      padding: 80px 8%;
-    }
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
+.website-row a{
+  text-decoration:none;
+}
 
-    .section-title h2 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+.website{
+  color:#25D366;
+}
 
-    .section-title span {
-      color: #ff3c00;
-    }
+.whatsapp-small{
+  color:#ffd86b;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
 
-    .card {
-      background: #1c1c1c;
-      padding: 35px;
-      text-align: center;
-      border-radius: 10px;
-      transition: .3s;
-    }
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-bottom: 3px solid #ff3c00;
-    }
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
 
-    .card .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
 
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 23px;
-    }
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+  }
 
-    .card p {
-      color: #bbb;
-    }
+  .demo,
+  .right{
+    width:100%;
+  }
 
-    .pricing {
-      background: #0b0b0b;
-    }
+  iframe{
+    height:500px;
+  }
 
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+  .right{
+    padding:20px;
+  }
+}
 
-    .plan {
-      background: #1c1c1c;
-      padding: 40px 30px;
-      border-radius: 10px;
-      text-align: center;
-    }
+@media(max-width:480px){
+  h1{
+    font-size:26px;
+  }
 
-    .plan.featured {
-      border: 2px solid #ff3c00;
-      transform: scale(1.03);
-    }
+  .sub{
+    font-size:16px;
+  }
 
-    .plan h3 {
-      font-size: 25px;
-    }
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
 
-    .price {
-      font-size: 42px;
-      font-weight: bold;
-      color: #ff3c00;
-      margin: 20px 0;
-    }
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
 
-    .plan ul {
-      list-style: none;
-      margin-bottom: 30px;
-    }
-
-    .plan li {
-      padding: 8px;
-      color: #ccc;
-    }
-
-    .about {
-      display: flex;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about img {
-      width: 50%;
-      border-radius: 10px;
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
-    .about-text h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
-    .about-text h2 span {
-      color: #ff3c00;
-    }
-
-    .about-text p {
-      color: #bbb;
-      margin-bottom: 25px;
-    }
-
-    .contact {
-      background: #1a1a1a;
-      text-align: center;
-    }
-
-    .contact p {
-      margin: 10px 0;
-      color: #ccc;
-    }
-
-    footer {
-      background: #080808;
-      text-align: center;
-      padding: 25px;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 8px;
-        font-size: 14px;
-      }
-
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .services,
-      .plans {
-        grid-template-columns: 1fr;
-      }
-
-      .about {
-        flex-direction: column;
-      }
-
-      .about img {
-        width: 100%;
-      }
-
-      .plan.featured {
-        transform: none;
-      }
-    }
-  </style>
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">IRON<span>FIT</span></div>
+<div class="container">
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Plans</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="demo">
+    <iframe src="https://icesuper.info/"></iframe>
+  </div>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>BUILD YOUR <span>BEST BODY</span></h1>
+  <div class="right">
+    <div class="box">
 
-      <p>
-        Train harder. Get stronger. Become the best version of yourself
-        with IronFit Gym.
+      <div class="badge">ICESUPER OFFICIAL</div>
+
+      <h1>ICESUPER WHITELABEL &amp; MASTER AVAILABLE</h1>
+
+      <p class="sub">
+        Get your Icesuper Whitelabel and Master Panel
+        in the cheapest rate.
       </p>
 
-      <a href="#pricing" class="btn">JOIN NOW</a>
-    </div>
-  </section>
+      <div class="features">
+        <div class="feature">
+          Whitelabel: <span>Available Now</span>
+        </div>
 
-  <!-- Services -->
-  <section id="services">
-    <div class="section-title">
-      <h2>Our <span>Services</span></h2>
-      <p>Everything you need to reach your fitness goals.</p>
-    </div>
+        <div class="feature">
+          Master Panel: <span>Available Now</span>
+        </div>
 
-    <div class="services">
+        <div class="feature">
+          Cheapest Rate: <span>Best Price</span>
+        </div>
 
-      <div class="card">
-        <div class="icon">🏋️</div>
-        <h3>Weight Training</h3>
-        <p>
-          Build strength and muscle with professional equipment and guidance.
-        </p>
+        <div class="feature">
+          Website: <span>icesuper.info</span>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="icon">🔥</div>
-        <h3>Cardio Training</h3>
-        <p>
-          Improve endurance and burn calories with our cardio programs.
-        </p>
+      <div class="website-row">
+        <a class="website" href="https://icesuper.info/" target="_blank">
+          🌐 icesuper.info
+        </a>
+
+        <a class="whatsapp-small" href="https://wa.me/+447767775396" target="_blank">
+          💬 WhatsApp
+        </a>
       </div>
 
-      <div class="card">
-        <div class="icon">🥊</div>
-        <h3>Personal Training</h3>
-        <p>
-          Get personalized workouts designed around your individual goals.
-        </p>
-      </div>
+      <a class="cta"
+         href="https://wa.me/+447767775396?text=Hello%20I%20want%20Icesuper%20Whitelabel%20or%20Master"
+         target="_blank">
+        📲 WhatsApp Now
+      </a>
 
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing" id="pricing">
-    <div class="section-title">
-      <h2>Membership <span>Plans</span></h2>
-      <p>Choose the plan that works for you.</p>
-    </div>
-
-    <div class="plans">
-
-      <div class="plan">
-        <h3>Basic</h3>
-        <div class="price">$29</div>
-
-        <ul>
-          <li>✓ Gym Access</li>
-          <li>✓ Cardio Area</li>
-          <li>✓ Locker Access</li>
-          <li>✗ Personal Trainer</li>
-        </ul>
-
-        <a href="#contact" class="btn">Choose Plan</a>
-      </div>
-
-      <div class="plan featured">
-        <h3>Premium</h3>
-        <div class="price">$49</div>
-
-        <ul>
-          <li>✓ Unlimited Gym Access</li>
-          <li>✓ Cardio Area</li>
-          <li>✓ Locker Access</li>
-          <li>✓ 2 Personal Sessions</li>
-        </ul>
-
-        <a href="#contact" class="btn">Choose Plan</a>
-      </div>
-
-      <div class="plan">
-        <h3>Elite</h3>
-        <div class="price">$79</div>
-
-        <ul>
-          <li>✓ Unlimited Gym Access</li>
-          <li>✓ All Training Areas</li>
-          <li>✓ Nutrition Plan</li>
-          <li>✓ Personal Trainer</li>
-        </ul>
-
-        <a href="#contact" class="btn">Choose Plan</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
-
-    <img
-      src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=80"
-      alt="Gym workout"
-    >
-
-    <div class="about-text">
-      <h2>Train <span>Hard.</span> Stay Strong.</h2>
-
-      <p>
-        IronFit is a modern fitness center designed for people who are
-        serious about improving their strength, fitness and confidence.
+      <p class="trust">
+        ✅ Check our website on left side<br>
+        ✅ Direct WhatsApp support<br>
+        ✅ Cheapest rate available<br>
+        📞 +447767775396
       </p>
 
-      <p>
-        Our experienced trainers, quality equipment and supportive community
-        help you stay motivated throughout your fitness journey.
-      </p>
+      <div class="footer">
+        Icesuper Whitelabel &amp; Master Available | Contact on WhatsApp
+      </div>
 
-      <a href="#contact" class="btn">Get Started</a>
     </div>
+  </div>
 
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="section-title">
-      <h2>Contact <span>Us</span></h2>
-    </div>
-
-    <p>📍 123 Fitness Street, Your City</p>
-    <p>📞 +1 234 567 890</p>
-    <p>✉️ info@ironfit.com</p>
-
-    <br>
-
-    <a href="mailto:info@ironfit.com" class="btn">Contact Now</a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 IronFit Gym. All Rights Reserved.</p>
-  </footer>
+</div>
 
 </body>
 </html>
+```
